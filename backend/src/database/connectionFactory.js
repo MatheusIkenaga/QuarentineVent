@@ -2,9 +2,9 @@ const mysql = require('mysql')
 
 const con = mysql.createConnection({
     host: '127.0.0.1',
-    user: 'mysql-test',
-    password: 'Mysqltest123',
-    database: 'sitepoint' 
+    user: 'quarentinewhisper',
+    password: '4n~e$p:a36X%+k#N',
+    database: 'QUARENTINEWHISPER' 
 })
 
 con.connect((err)=>{

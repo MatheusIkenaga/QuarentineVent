@@ -1,9 +1,10 @@
 const express = require('express')
-const testController = require('./controllers/testController')
+const postController = require('./controllers/postController')
 
 
 const routes = express.Router();
 
-routes.get('/api/test', testController.index)
+routes.get('/api/post', postController.index)
+routes.post('/api/post', postController.create)
 
 module.exports = routes;
