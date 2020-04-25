@@ -12,7 +12,7 @@ primary key (user_id));
 
 create table post
 (post_id int not null auto_increment,
-post_author int,
+post_author int not null,
 post_title varchar (30),
 post_description varchar (999),
 post_created datetime default now(),
