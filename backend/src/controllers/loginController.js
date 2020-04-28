@@ -5,7 +5,6 @@ module.exports={
     async create (request, response){
 
         const{user_nickname,user_password, user_email} = request.body
-
         await con.query('insert into login (`user_nickname`,`user_password`,`user_email`) values (?,?,?)',
 
         ([user_nickname, user_password, user_email]),(err,res)=>{
@@ -43,7 +42,7 @@ module.exports={
 
     },
 
-    
+
 
 
 
