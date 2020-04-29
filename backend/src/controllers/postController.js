@@ -1,9 +1,8 @@
 const con = require('../database/connectionFactory')
-const commentController = require('./commentController')
 
 module.exports={
 
-    async index (request,response){
+    async indexPosts (request,response){
         await con.query('Select * from post order by post_created desc',(err,rows)=>{
             if (err) throw err
             return response.json(rows);
@@ -29,50 +28,26 @@ module.exports={
 
     },
 
-    async indexFull(request,response){
-        await con.query('Select * from post order by post_created desc',(err,rows)=>{
-            if (err) throw err
+    async index(request,response){
 
-            var url = 'http://localhost:3000/api/post/comment'
-            
-            rows.forEach((row) => {
-                row.comments = ([
-                    
-                    //FIX THIS, NEET TO RETURN COMMENTS FROM POST
+        var comments
 
-                    commentController.getComments(row.post_id)
+        await con.query('Select * from post order by post_created desc; Select * from post_comment order by comment_created asc',(err,rows)=>{
+            if (err){ 
+                throw err
+            }
+            comments = rows[1]
+            posts = rows[0]
 
-                    /*
-                    var request = require('request');
+            rows[0].forEach((row) => {
+                var id = row.post_id
 
-                    var url = 'http://localhost:8103/rest/getUser/';
-
-                    var paramsObject = { userId:12345 };
-
-                    request({url:url, qs:paramsObject}, function(err, response, body) {
-                    if(err) { console.log(err); return; }
-                    console.log("Response: " + response.statusCode);
-                    });
-                    */
-
-
-
-
-                    
-                ])
-                
-            });
-
-            //rows.push([{"comment": "test"}])
-            
-            //console.log(rows)
-            
-            
-            
-            return response.json(rows)
-        })
+                row.comments =(  
+                     comments.filter(x => x.post_id === id) ) 
+            })
+ 
+            console.log(rows[0])
+            return response.json(rows[0])
+        }) 
     } 
-
-    
-
 }
