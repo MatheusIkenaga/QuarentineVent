@@ -15,6 +15,4 @@ routes.post('/api/post/comments', commentController.getComments)
 routes.post('/api/createLogin', loginController.create)
 routes.post('/api/checkLogin', loginController.check)
 
-
-
 module.exports = routes;
