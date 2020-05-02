@@ -16,10 +16,10 @@ module.exports={
     },
 
     async getComments(request, response){
-        const post_id = request.body 
+        const {post_id} = request.body 
         await con.query(`Select * from post_comment where post_id = (?) order by comment_created asc`,([post_id]),(err,rows)=>{
             if (err) throw err
-            return reponse.json(rows)
+            return response.json(rows)
         })
 
     }
