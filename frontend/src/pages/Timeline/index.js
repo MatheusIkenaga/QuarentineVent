@@ -6,7 +6,9 @@ import api from '../../services/api'
 import './styles.css'
 
 export default function Timeline(){
-
+    const user_id = localStorage.getItem('user_id')
+    const [comment_description, setComment_description] = useState([])
+    const [post_id_comment, setPost_id_comment] = useState([])
     const [posts, setPosts] = useState([])
     const history = useHistory()
     
@@ -18,17 +20,40 @@ export default function Timeline(){
         
     })
 
-
     function HandleLogout(){
         localStorage.clear()
         history.push('/')
     }
 
+    async function HandleCreateComment(e){
+        e.preventDefault()
+        e.target.reset()
+        const post_id = post_id_comment
+        const data={
+            comment_description,
+            post_id
+        }
+
+        try{
+            await api.post('api/post/comment', data,{
+                headers:{
+                    Authorization: user_id
+                }
+            })
+            history.push('/timeline')
+
+        }catch(err){
+            alert('Error to create comment')
+        }
+        
+    }
+
     return (
+
         <div className="Screen">
             <header className="header">
 
-                <Link className="buttonHeader" to="/incidents/new">Create a Post</Link>
+                <Link className="buttonHeader" to="/newPost">Create a Post</Link>
 
                 <div className="centerLogo">
                     <img className="logo" src={logo} alt="logo"/>
@@ -50,6 +75,7 @@ export default function Timeline(){
                     <ul>
                         {posts.map(post => (
                             <li key ={post.post_id}>
+                                
                                 <button type="button">
                                     <FiTrash2 size={20} color="#a8a8b3" />
                                 </button>
@@ -58,9 +84,14 @@ export default function Timeline(){
 
                                 
                                 <div className="inputComment">
-                                    <input placeholder="Comment Here"/>
-            
-                                </div>
+                                    <form onSubmit={HandleCreateComment} >
+                                        <input placeholder="Comment Here" 
+                                        onChange={(e => setComment_description(e.target.value, setPost_id_comment(post.post_id)))}
+                                        
+                                        />
+                                        
+                                    </form>
+                                </div> 
                                 <div className="comments">
                                     <ul>
                                         {post.comments.map(comment =>

@@ -6,15 +6,35 @@ import './logon.css'
 
 export default function Logon(){
 
+    const[user_email,setUser_email] = useState('')
+    const[user_password,setUser_password] = useState('')
+    const history = useHistory()
+
+
+    async function handleLogin(e){
+        e.preventDefault()
+
+        try{
+            const response = await api.post('api/checkLogin', {user_email, user_password})
+
+            localStorage.setItem('user_id', response.data.user_id)
+            history.push('timeline')
+
+            console.log(response.data.name)
+        }catch(err){
+            alert('Falha no Login, tente novamente.')
+        }
+
+    }
 
     return(
         <div className="logon-container">
             <div className="form">
-                <form onSubmit="">
+                <form onSubmit={handleLogin}>
                     <strong>Logon</strong>
 
-                    <input placeholder="E-mail" type="email"/>
-                    <input placeholder="Password" type="password"/>
+                    <input placeholder="E-mail" type="email" value={user_email} onChange={e => setUser_email(e.target.value)}/>
+                    <input placeholder="Password" type="password" value={user_password} onChange={e => setUser_password(e.target.value)}/>
                     <button type="submit">Join</button>
                     <Link className="Link">Register</Link>
 
