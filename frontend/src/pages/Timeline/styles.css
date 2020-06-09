@@ -196,13 +196,16 @@
     color: #FFF736;
 }
 
+.content li input:focus {
+    color: white;
+}
+
 input:focus,select:focus{
     outline: 0;
 }
 
 .inputComment{
     text-align: center;
-    
 }
 
 .comments li{

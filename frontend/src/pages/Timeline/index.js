@@ -86,6 +86,7 @@ export default function Timeline(){
                                 <div className="inputComment">
                                     <form onSubmit={HandleCreateComment} >
                                         <input placeholder="Comment Here" 
+                                        className="formCommentInput" 
                                         onChange={(e => setComment_description(e.target.value, setPost_id_comment(post.post_id)))}
                                         
                                         />

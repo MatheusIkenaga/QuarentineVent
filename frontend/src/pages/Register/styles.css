@@ -1,0 +1,98 @@
+*{
+    border:0px;
+    margin: 0px;
+}
+strong{
+    font-size: x-large;
+    margin-left: 34%;
+    color: #FFF736;
+}
+.register-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+.formRegister{
+    width: 50%;
+    margin-left: 5%;
+}
+.formRegister form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    margin-top: 2%;
+    border: 1px solid #FFF736;
+    border-radius: 15px;
+    width: 77%;
+    padding: 2% 0%;
+    text-align: center;
+    color: #FFF736;
+ 
+}
+
+input:focus,select:focus{
+    outline: 0;
+}
+
+.formRegister button{
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-radius: 15px;
+    width: 77%;
+    padding: 2% 0%;
+    text-align: center;
+    transition: 0.2s;
+    border: 1px solid #FFF736;
+    background-color: #FFF736;
+    color: black;
+}
+
+button:hover{
+    background-color: #080F2F;
+    color: #FFF736;
+}
+
+.quarentine{
+    width: 40%;
+    height: 30%;
+    display: flex;
+    color: #FFF736;
+    border: 1px solid #FFF736;
+    border-radius: 15px;
+}
+
+.quarentine img{
+    margin-top: 4.5%;
+    margin-left: 5%;
+    width: auto;
+    height: 80%;
+}
+
+.LinkRegister{
+    margin-left: 28%;
+    color: white;
+}
+
+.text{
+    margin-top: 10%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    color: #FFF736;
+    font-size: x-large;
+    margin-top: 5%;
+}
+
+.description{
+    color: white;
+    font-size: x-large;
+    margin-top: 5%;
+}
