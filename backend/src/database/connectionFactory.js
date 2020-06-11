@@ -1,10 +1,11 @@
 const mysql = require('mysql')
 
 const con = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'quarentinewhisper',
-    password: '4n~e$p:a36X%+k#N',
-    database: 'QUARENTINEWHISPER' ,
+    host: 'mysql669.umbler.com',
+    port: '41890',
+    user: 'quarentinew',
+    password: 'senhadobanco123',
+    database: 'quarentinew',
     multipleStatements: true
 })
 

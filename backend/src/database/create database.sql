@@ -25,6 +25,6 @@ comment_id int not null auto_increment,
 comment_description varchar(999),
 comment_created datetime default now(),
 comment_author int,
-comment_post_id int,  -- primary key of table post
+post_id int,  -- primary key of table post
 primary key(comment_id),
 constraint original_post foreign key (comment_post_id) references post(post_id))
