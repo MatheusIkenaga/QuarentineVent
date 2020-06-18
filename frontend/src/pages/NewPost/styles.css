@@ -8,11 +8,24 @@
 
 .leftSide{
     height: auto;
-    width: 20%;
+    width: 10%;
 }
+
+.leftSide input{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    margin-left: 2%;
+    border: 1px solid #FFF736;
+    border-radius: 15px;
+    width: 96%;
+    padding: 2% 0%;
+    text-align: center;
+    color: #FFF736;
+}
+
 .rightSide{
     height: auto;
-    width: 20%;
+    width: 10%;
 }
 
 .formNewPost{
@@ -24,7 +37,7 @@
     margin-top: 3%;
     display: flex;
     flex-direction: column;
-    margin-left: 20%;
+    margin-left: 17%;
     padding: 3%;
 }
 
@@ -52,4 +65,27 @@
 button:hover{
     background-color: #080F2F;
     color: #FFF736;
+}
+textarea{
+    width: 30%;
+    display: flex;
+    width: 70%;
+    border: 1px solid #FFF736;
+    border-radius: 14px;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 12%;
+    text-align: center;
+    padding: 3%;
+    color: white;
+    font: 400 88% Roboto, sans-serif;
+}
+
+textarea:focus,select:focus{
+    outline: 0;
+}
+
+.inputTitle input{
+    width: 76%;
 }

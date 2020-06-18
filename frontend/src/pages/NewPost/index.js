@@ -67,7 +67,7 @@ export default function NewPost(){
                             <input placeholder="Insert Title" onChange={e => setPost_title(e.target.value)}/>
                         </div>
                         <div className="inputDescription">
-                            <input placeholder="Insert Description" onChange={e => setPost_description(e.target.value)}/>
+                            <textarea className="inputDescriptionForm" type="textarea" placeholder="Insert Description" onChange={e => setPost_description(e.target.value)}/>
                         </div>
                         <button className="submit" type="submit">Create Post</button>
                     </form>

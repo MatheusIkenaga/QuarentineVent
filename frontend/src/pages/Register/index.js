@@ -16,7 +16,10 @@ export default function Logon(){
 
     async function handleRegister(e){
         e.preventDefault()
-        if(user_password1===user_password2){
+        if((user_email === '') || (user_nickname === '') || (user_password1 === '')){
+            alert('Complete all the spaces\nComplete todos os campos')
+
+        }else if(user_password1===user_password2 ){
             try{
                 const user_password = user_password1
                 const response = await api.post('api/createLogin', {user_nickname, user_password,user_email})
@@ -28,7 +31,7 @@ export default function Logon(){
                 alert("Success!")
                 history.push("/")
             }catch(err){
-                alert('Fail to Logon, try again.')
+                alert('Fill all the spaces, try again.')
             }
         }else if(user_password1!==user_password2){
             alert("Inconsistents password spaces")

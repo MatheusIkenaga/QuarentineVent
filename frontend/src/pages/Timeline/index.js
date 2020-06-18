@@ -24,6 +24,9 @@ export default function Timeline(){
         localStorage.clear()
         history.push('/')
     }
+    function HandleNotWorking(){
+        alert("Sorry...I'm working in this funcionality")
+    }
 
     async function HandleCreateComment(e){
         e.preventDefault()
@@ -67,7 +70,7 @@ export default function Timeline(){
 
             <div className= "posts">
                 <div className="leftSide">
-                    <input placeholder="Search Posts" />
+                    <input placeholder="Search Posts" onClick={HandleNotWorking}/>
                 </div>
 
                 <div className="content">
@@ -77,8 +80,8 @@ export default function Timeline(){
                             <li key ={post.post_id}>
                                 
                                 <button type="button">
-                                    <FiTrash2 size={20} color="#a8a8b3" />
-                                </button>
+                                    <FiTrash2 size={20} color="#a8a8b3" onClick={HandleNotWorking}/>
+                                </button> 
                                 <h1>{post.post_title}</h1>
                                 <p>{post.post_description}</p>
 
@@ -87,8 +90,8 @@ export default function Timeline(){
                                     <form onSubmit={HandleCreateComment} >
                                         <input placeholder="Comment Here" 
                                         className="formCommentInput" 
-                                        onChange={(e => setComment_description(e.target.value, setPost_id_comment(post.post_id)))}
-                                        
+                                        onChange={(e => setComment_description(e.target.value))}
+                                        onClick={e => setPost_id_comment(post.post_id)}
                                         />
                                         
                                     </form>
@@ -106,8 +109,8 @@ export default function Timeline(){
                     </ul>
                 </div>
                 <div className="rightSide">
-                    <Link className="myPosts" to="/incidents/new">My Posts</Link>
-                    <Link className="myProfile" to="/incidents/new">My Profile</Link>
+                    <Link className="myPosts" onClick={HandleNotWorking}>My Posts</Link>
+                    <Link className="myProfile" onClick={HandleNotWorking}>My Profile</Link>
                 </div>
             </div>
             
